@@ -1,70 +1,69 @@
-let menuDeOpciones = pedirDatos();
 let registrar;
 do {
     discografia = prompt("Que operacion desea realizar?"
      + "1 Menu de opciones"
      + "2 Registrar banda nombre,genero y año\n"
      + "3 Registrar album nombre,banda y año\n"
-     + "4 Registrar canciones en album  album,nombre,duracion\n"
+     + "4 Registrar canciones en album  duracion,nombre, album\n"
      + "5 Informacion por genero albunes,bandas"
      + "6 Informacion por album"
      + "7 Cancion en especifico"
      + "8 Mostrar datos"
     );
     switch(informacion) {
-       // case "1" :
-       //     console.log("Menu de opciones:");
-         //   console.log(menuDeOpciones.length);
-            //break;
+        case "1" :
+            console.log("Menu de opciones:");
+            console.log(menuDeOpciones.length);
+            break;
         case "2" :
             console.log("Registrar banda nombre,genero y año:");
             let registro = registrar ("nombre,genero,año"); 
             if (registro != null) {
-                console.log(registro); 
+                console.log(regis); 
             } else {
                 console.log("registro completo");
             }
             break;
-       // case "3" :
-        //    console.log("Registrar album nombre,banda,año:");
-          //  let registro = registrar ("nombre,banda,año"); 
-         //   if (registro != null) {
-           //     console.log(registrar); 
-           // } else {
-           //     console.log("registro completo");
-           // }
-           // break;
-    //    case "4" :
-     //       console.log("Registrar cancion album,nombre,duracion:");
-     //       let registro = registrar ("album,nombre,duracion"); 
-       //     if (registro != null) {
-         //       console.log(registro); 
-           // } else {
-             //   console.log("registro completo");
-            //}
-            //break;
-      //  case "5" :
-      //      console.log("Informacion por genero:");
-       //     informacion(albunes,bandas);
-      //      break;
-      //  case "6" :
-      //      console.log("Informacion por album");
-      //      informacion(album); 
-        //    break; 
-    //    case "7" :
-     //       console.log("Cancion en especifico");
-     //       informacion(nombre, banda, album);
-     //       break;
-     //   case "8" :
-     //       console.log("Mostrar datos")
-     //       informacion(nombre, banda, album,genero,año);
-     //       break;
-       // default:
-         //   console.log("Entrada no valida");
-           // break;
+        case "3" :
+            console.log("Registrar album nombre,banda,año:");
+            let registro = registrar ("nombre,banda,año"); 
+            if (registro != null) {
+                console.log(registrar); 
+            } else {
+                console.log("registro completo");
+            }
+            break;
+        case "4" :
+            console.log("Registrar canciones en album  duracion,nombre, album:");
+            let registro = registrar ("duracion,nombre, album"); 
+            if (registro != null) {
+                console.log(regis); 
+            } else {
+                console.log("registro completo");
+            }
+            break;
+        case "5" :
+            console.log("Informacion por genero:");
+            informacion(albunes,bandas);
+            break;
+        case "6" :
+            console.log("Informacion por album");
+            informacion(album); 
+            break; 
+        case "7" :
+            console.log("Cancion en especifico");
+            informacion(nombre, banda, album);
+            break;
+        case "8" :
+            console.log("Mostrar datos")
+            informacion(nombre, banda, album,genero,año);
+            break;
+        default:
+            console.log("Entrada no valida");
+            break;
     }
 }while(operacion != 8);
-function pedirDatos() {
+function pedirDatos(texto) {
     let cantDatos = parseInt(prompt("Menu de opciones"));
     let discografia = [];
     for (let i = 0; i < pedirDatos; i++) {
@@ -80,22 +79,31 @@ function pedirDatos() {
     }
     return registro; 
 }
-function registrarBanda(nombre,genero,año) {
-    let registro = 0;
+function registrarBanda(texto) {
+    let nombre = 0;
+    let genero = 0;
+    let año = 0;
     
     for (let i = 0; i < nombre,genero,año.length; i++) {
         registro += nombre,genero,año[i]["Bandas"];
     }
     return (registro /nombre,genero,año.length);
 }
-function registrarAlbum(nombre,banda,año) {
-    let registro = 0;
+function registrarAlbum(texto) {
+    let nombre = 0;
+    let banda = 0;
+    let año = 0;
+
     for (let i = 0; i < nombre,banda,año; i++) {
         registro +=nombre,banda,año[i]["album"];
     }
     return (registro /nombre,banda,año);
 }
-function resgistrarCancion(album,nombre,duracion) {
+function resgistrarCancion(texto) {
+    let album = 0;
+    let nombre = 0;
+    let duracion = 0;
+
     for (let i = 0; i < album,nombre,duracion; i++) {
         registro +=album,nombre,duracion[i]["cancion"];
     }
@@ -118,14 +126,14 @@ function infomacionPorGenero(texto) {
     }
     return banda + " grupo y " + album + " disco";
 }
-function infomacionPorAlbum(album) {
+function infomacionPorAlbum(texto) {
     let album = [];
     for(let i = 0; i < album.length; i++) {
         return album;
     }
 }
 console.log(album);
-function cancionEspecifica(buscar) {
+function cancionEspecifica(texto) {
     let consulta = prompt("Cancion en especifico");
     for (let j = 0; j < buscar.length; j++) {
         const bus = consulta[j];
